@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment Interface</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      border: ;
+    }
+  </style>
+</head>
+
+<body class="w-full h-screen">
+
+  <div class="bg-white w-full">
+
+    <div class="p-2 px-4 w-full border-b border-gray-400">
+      <button class="text-gray-600">CANCEL</button>
+    </div>
+    <div class="flex justify-between items-center p-2">
+
+      <div>
+        <p class="text-sm font-semibold">SBI Bank</p>
+        <p class="text-sm text-gray-500">XXXX0052</p>
+      </div>
+
+      <img src="https://cdn.iconscout.com/icon/free/png-256/free-upi-2085056-1747946.png?f=webp" class="object-cover w-16 h-10">
+
+    </div>
+
+    <div class="flex justify-between items-center p-2 bg-gray-300">
+
+      <div>
+        <p class="text-sm">To:</p>
+        <p class="text-sm">Sending:</p>
+      </div>
+
+      <div class="text-end">
+        <p class="text-sm font-semibold">User</p>
+        <p class="text-sm font-semibold">₹ amount</p>
+      </div>
+
+    </div>
+
+    <div class="w-full flex flex-col justify-center items-center p-4 py-16 gap-2">
+      <p class="text-sm font-semibold text-center">ENTER 6-DIGIT UPI PIN</p>
+
+      <div class="flex justify-center space-x-2 ">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+        <input type="password" class="w-8 h-8 border border-gray-300 rounded text-center" maxlength="1">
+      </div>
+
+      <div class="mt-10 p-2 bg-yellow-100 rounded text-yellow-700 text-sm">
+        <p class="text-center text-black">You are SENDING ₹ amount from your account to user</p>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-3 bg-black">
+      <button class="bg-gray-200 py-2 text-lg">1</button>
+      <button class="bg-gray-200 py-2 text-lg">2</button>
+      <button class="bg-gray-200 py-2 text-lg">3</button>
+      <button class="bg-gray-200 py-2 text-lg">4</button>
+      <button class="bg-gray-200 py-2 text-lg">5</button>
+      <button class="bg-gray-200 py-2 text-lg">6</button>
+      <button class="bg-gray-200 py-2 text-lg">7</button>
+      <button class="bg-gray-200 py-2 text-lg">8</button>
+      <button class="bg-gray-200 py-2 text-lg">9</button>
+      <button class="bg-gray-200 py-2 text-lg"><i class="ri-delete-back-2-fill"></i></button>
+      <button class="bg-gray-200 py-2 text-lg">0</button>
+      <button class="bg-gray-200 py-2 text-lg">SUBMIT</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle PIN input
+    document.querySelectorAll('input[type="password"]').forEach((input, index, arr) => {
+      input.addEventListener('input', () => {
+        if (input.value.length === input.maxLength) {
+          if (index < arr.length - 1) {
+            arr[index + 1].focus();
+          } else {
+            arr[index].blur();
+          }
+        }
+      });
+    });
+    // JavaScript to handle number pad input
+    document.querySelectorAll('.grid button').forEach(button => {
+      button.addEventListener('click', () => {
+        const activeInput = document.querySelector('input[type="password"]:focus') || document.querySelector('input[type="password"]:not([value])');
+        if (button.innerText === 'X') {
+          activeInput.value = '';
+          activeInput.focus();
+        } else if (button.innerText !== 'SUBMIT') {
+          activeInput.value = button.innerText;
+          const nextInput = activeInput.nextElementSibling;
+          if (nextInput && nextInput.tagName === 'INPUT') {
+            nextInput.focus();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
