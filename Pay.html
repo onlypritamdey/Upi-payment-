@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment Interface</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-full h-screen overflow-hidden">
+
+  <div class="bg-white w-full">
+
+    <div class="p-2 px-4 w-full border-b border-gray-400">
+      <button class="text-gray-600">CANCEL</button>
+    </div>
+    <div class="flex justify-between items-center p-2">
+
+      <div>
+        <p class="text-sm font-semibold">SBI Bank</p>
+        <p class="text-sm text-gray-500">XXXX0000</p>
+      </div>
+
+      <img src="https://cdn.iconscout.com/icon/free/png-256/free-upi-2085056-1747946.png?f=webp" class="object-cover w-16 h-10">
+
+    </div>
+
+    <div class="flex justify-between items-center p-2 bg-gray-300">
+
+      <div>
+        <p class="text-sm">To:</p>
+        <p class="text-sm">Sending:</p>
+      </div>
+
+      <div class="text-end">
+        <p class="text-sm font-semibold">User</p>
+        <p class="text-sm font-semibold">₹ 100</p>
+      </div>
+
+    </div>
+
+    <div class="w-full flex flex-col justify-center items-center p-4 py-16 gap-2">
+      <p class="text-sm font-semibold text-center">ENTER 6-DIGIT UPI PIN</p>
+
+      <div class="flex justify-center space-x-4">
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+        <div class="w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center pin-input"></div>
+      </div>
+
+      <div class="mt-10 p-2 bg-yellow-100 rounded text-sm">
+        <p class="text-center text-black">You are SENDING ₹ amount from your account to user</p>
+      </div>
+
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full grid grid-cols-3">
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('1')">1</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('2')">2</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('3')">3</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('4')">4</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('5')">5</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('6')">6</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('7')">7</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('8')">8</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('9')">9</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleDelete()"><i class="ri-delete-back-2-fill"></i></button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleKeyPress('0')">0</button>
+        <button class="bg-gray-200 py-2 text-lg outline outline-1 outline-gray-400" onclick="handleSubmit()">SUBMIT</button>
+    </div>
+      
+  </div>
+
+  <script>
+    let pinIndex = 0;
+
+    function handleKeyPress(key) {
+      const inputs = document.querySelectorAll('.pin-input');
+      if (pinIndex < inputs.length) {
+        inputs[pinIndex].classList.add('bg-black');
+        inputs[pinIndex].classList.remove('border-gray-300');
+        pinIndex++;
+      }
+    }
+
+    function handleDelete() {
+      const inputs = document.querySelectorAll('.pin-input');
+      if (pinIndex > 0) {
+        pinIndex--;
+        inputs[pinIndex].classList.remove('bg-black');
+        inputs[pinIndex].classList.add('border-gray-300');
+      }
+    }
+
+    function handleSubmit() {
+      const inputs = document.querySelectorAll('.pin-input');
+      let pin = '';
+      inputs.forEach(input => {
+        if (input.classList.contains('bg-black')) {
+          pin += '*'; // placeholder for actual digit
+        }
+      });
+      //alert('UPI PIN entered: ' + pin);
+      // Here you can handle the UPI PIN submission logic
+    }
+  </script>
+  
+</body>
+
+</html>
