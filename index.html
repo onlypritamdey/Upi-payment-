@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Interface</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <style>
-        *{
-            border: ;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Interface</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      border: ;
+    }
+  </style>
 </head>
-<body class="w-full h-full overflow-hidden">
-    <div class="bg-white w-full h-full relative">
 
-
+<body class="w-full h-screen overflow-hidden flex flex-col justify-between">
+  
+  <div class="bg-white w-full">
+    
     <div class="flex items-center justify-between p-2">
-            <div class="flex items-center">
-                <button onclick="history.back()" class="text-xl text-gray-500">
-                    <i class="ri-arrow-left-line"></i>
-                </button>
-                <div class="ml-3">
-                    <div class="w-10 h-10 rounded-full bg-pink-400 text-white flex items-center justify-center text-lg">
-                        PD
-                    </div>
-                    
-                </div>
-                <div class="ml-3">
-                    <div class="text-lg font-semibold">Pritam Dey<i class="ri-check-fill text-white bg-blue-500 rounded-full m-1"></i></div>
-                    <div class="text-gray-500">pclubs@jio</div>
-                </div>
-            </div>
+      <div class="flex items-center">
+        <button onclick="history.back()" class="text-xl text-gray-500">
+          <i class="ri-arrow-left-line"></i>
+        </button>
+        <div class="ml-3">
+          <div class="w-10 h-10 rounded-full bg-pink-400 text-white flex items-center justify-center text-lg">
+            PD
+          </div>
+
         </div>
-        
-    <div class="mt-4 p-2 border-b flex items-center">
-            <div class="text-gray-500 mr-10">To</div>
-            <img src="" class="w-6 h-6 rounded-full">
-                <div class="ml-2 text-lg">UPI linked Bank A/c</div>
+        <div class="ml-3">
+          <div class="text-lg font-semibold">Pritam Dey<i class="ri-check-fill text-white bg-blue-500 rounded-full m-1"></i></div>
+          <div class="text-gray-500">pclubs@jio</div>
         </div>
-
-
-    <div class=" flex flex-col  items-center mt-20">
-            <div class=" text-gray-500 text-right">₹
-                <input type="number" class="border-none text-xl w-auto text-gray-700" placeholder="0">
-            </div>
-           
-        
-            <button class="w-1/2 py-2 bg-gray-100 text-gray-500 rounded-md">Add Message</button>
-        </div>
-
-
-
-
-
-        <div class="absolute bottom-2 left-0 p-2 w-full">
-            <button class="w-full py-3 bg-blue-500 text-white rounded-md flex items-center justify-center">
-                <i class="ri-shield-check-line mr-2"></i>
-                Proceed Securely
-            </button>
-            <div class="mt-6 flex justify-center text-gray-500">
-                <i class="ri-shield-check-line mr-2"></i> Powered by UPI
-            </div>
-        </div>
-        
+      </div>
     </div>
+    
+    
+     <div class="mt-4 p-2 border-b flex items-center">
+      <div class="text-gray-500 mr-10">To</div>
+      <img src="" class="w-6 h-6 rounded-full">
+      <div class="ml-2 text-lg">UPI linked Bank A/c</div>
+    </div>
+  
+  
+  
+  <div class=" flex flex-col  items-center mt-20">
+      <div class=" text-gray-500 text-right">₹
+        <input type="number" class="border-none text-xl w-auto text-gray-700" placeholder="0">
+      </div>
+
+      <button class="w-1/2 py-2 bg-gray-100 text-gray-500 rounded-md">Add Message</button>
+    </div>
+   
+  </div>
+  
+ <div class="p-2 w-full">
+      <button class="w-full py-3 bg-blue-500 text-white rounded-md flex items-center justify-center">
+        <i class="ri-shield-check-line mr-2"></i>
+        Proceed Securely
+      </button>
+      <div class="mt-6 flex justify-center text-gray-500">
+        <i class="ri-shield-check-line mr-2"></i> Powered by UPI
+      </div>
+    </div>
+  
+  
 </body>
+
 </html>
